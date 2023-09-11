@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour
     private Rigidbody2D ballRb;
     //Change color
     private SpriteRenderer ballSr;
+    private TrailRenderer ballTr;
     [SerializeField] private float changeSpeed = 1.0f;
     [SerializeField] private float timePassed = 0.0f;
     private Color[] colors = new Color[] { Color.red, Color.yellow, Color.green, Color.cyan, Color.blue, Color.magenta, Color.red };
@@ -19,6 +20,7 @@ public class Ball : MonoBehaviour
     {
         ballRb = GetComponent<Rigidbody2D>();
         ballSr = GetComponent<SpriteRenderer>();
+        ballTr = GetComponent<TrailRenderer>(); 
         
         Launch();
         StartCoroutine(ChangeColorGradually());
@@ -68,6 +70,7 @@ public class Ball : MonoBehaviour
                 {
                     timePassed += Time.deltaTime * changeSpeed;
                     ballSr.color = Color.Lerp(initialColor, finalColor, timePassed);                    
+                    ballTr.material.color = Color.Lerp(initialColor, finalColor, timePassed);
                     yield return null;
                 }
 
