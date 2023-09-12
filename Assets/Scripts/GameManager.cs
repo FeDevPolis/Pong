@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
     public void Player1Scored()
     {
         player1Score++;
-        player1ScoreText.text = player1Score.ToString();    
+        player1ScoreText.text = player1Score.ToString();   
+        
     }
 
     public void Player2Scored()
@@ -41,10 +42,18 @@ public class GameManager : MonoBehaviour
         player2ScoreText.text = player2Score.ToString();
     }
 
+    //Kick off from the middle after goal
     public void Restart()
     {
         player1Transform.position = new Vector2(player1Transform.position.x, 0);
         player2Transform.position = new Vector2(player2Transform.position.x, 0);
         ballTransform.position = new Vector2(0, 0);
+
+        Ball ball = ballTransform.GetComponent<Ball>();
+        if (ball != null)
+        {
+            ball.ResetTrail();
+        }
+
     }
 }
