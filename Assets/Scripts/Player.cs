@@ -28,8 +28,8 @@ public class Player : MonoBehaviour
         }
 
         //transform.position += new Vector3(0, movement * speed * Time.deltaTime, 0);
-        Vector2 paddlePosition = transform.position;
-        paddlePosition.y = Mathf.Clamp(paddlePosition.y + movement * speed * Time.deltaTime,-yBound, yBound);
-        transform.position = paddlePosition;
+        Vector2 playerPosition = transform.position;
+        playerPosition.y = Mathf.Clamp(playerPosition.y + movement * speed * Time.deltaTime,-yBound, yBound);
+        transform.position = playerPosition;
     }
 }

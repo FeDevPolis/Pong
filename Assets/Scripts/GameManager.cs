@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform player2Transform;
     [SerializeField] private Transform ballTransform;
 
+    [SerializeField] private int maxGoalsToWin = 3;
     private int player1Score;
     private int player2Score;
-    
+
+            
     private static GameManager instance;
     
     public static GameManager Instance

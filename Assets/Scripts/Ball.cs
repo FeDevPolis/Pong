@@ -47,6 +47,12 @@ public class Ball : MonoBehaviour
         {
             ballRb.velocity *= velocityMultiplier;       
         }
+        else if (collision.gameObject.CompareTag("Limit"))
+        {
+            SpriteRenderer limitRd = collision.gameObject.GetComponent<SpriteRenderer>();
+       
+            limitRd.color = ballSr.color;
+        }
     }
     //Scoring
     private void OnTriggerEnter2D(Collider2D collision)
